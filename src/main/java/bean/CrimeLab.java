@@ -11,7 +11,7 @@ import java.util.UUID;
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
     private Context mAppContext;
-    private ArrayList<Crime> mCrimes;
+    private static ArrayList<Crime> mCrimes;
 
     private CrimeLab(Context appContext) {
         mAppContext = appContext;
@@ -35,7 +35,7 @@ public class CrimeLab {
     public ArrayList<Crime> getCrimes() {
         return mCrimes;
     }
-    public Crime getCrime(UUID id) {
+    public static Crime getCrime(UUID id) {
         for (Crime c : mCrimes) {
             if (c.getmId().equals(id))
                 return c;
