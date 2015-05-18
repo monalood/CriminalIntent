@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import bean.CrimeLab;
  * Created by yls on 15-5-14.
  */
 public class CrimeFragment extends Fragment {
+    private static final String TAG = "CrimeFragment";
     public static final String EXTRA_CRIME_ID =
             "com.bignerdranch.android.criminalintent.crime_id";
     private Crime   mCrime;
@@ -41,6 +43,8 @@ public class CrimeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         UUID uuid = (UUID) getArguments().getSerializable(EXTRA_CRIME_ID);
         mCrime = CrimeLab.getCrime(uuid);
+        Log.d(TAG, "onCreate:"+mCrime.getmTitle());
+        //getActivity().setTitle(mCrime.getmTitle());
     }
 
     @Override
@@ -63,6 +67,7 @@ public class CrimeFragment extends Fragment {
 
             }
         });
+        Log.d(TAG, "onCreateView:"+mCrime.getmTitle());
         mTitleField.setText(mCrime.getmTitle());
         mDateButton = (Button)v.findViewById(R.id.crime_date);
         mDateButton.setText(mCrime.getmDate().toString());
@@ -76,6 +81,8 @@ public class CrimeFragment extends Fragment {
                 mCrime.setmSolved(b);
             }
         });
+
+
         return v;
     }
 }
