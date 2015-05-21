@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -57,6 +56,12 @@ public class CrimeFragment extends Fragment {
             mCrime.setmDate(date);
             updateDate();
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.get(getActivity()).saveCrimes();
     }
 
     @Override
@@ -111,7 +116,7 @@ public class CrimeFragment extends Fragment {
 
             }
         });
-        Log.d(TAG, "onCreateView:"+mCrime.getmTitle());
+
         mTitleField.setText(mCrime.getmTitle());
         mDateButton = (Button)v.findViewById(R.id.crime_date);
         updateDate();
