@@ -1,4 +1,4 @@
-package bean;
+package com.model;
 
 import android.content.Context;
 import android.util.Log;

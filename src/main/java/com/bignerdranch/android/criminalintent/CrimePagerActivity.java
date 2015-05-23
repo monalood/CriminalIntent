@@ -10,8 +10,8 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.UUID;
 
-import bean.Crime;
-import bean.CrimeLab;
+import com.model.Crime;
+import com.model.CrimeLab;
 
 /**
  * Created by yls on 15-5-18.

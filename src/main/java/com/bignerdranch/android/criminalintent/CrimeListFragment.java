@@ -21,10 +21,10 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.model.Crime;
+import com.model.CrimeLab;
 
-import bean.Crime;
-import bean.CrimeLab;
+import java.util.ArrayList;
 
 /**
  * Created by yls on 15-5-15.
